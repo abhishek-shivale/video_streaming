@@ -9,4 +9,9 @@ export class AuthController {
   getHello(): string {
     return 'Hello World!';
   }
+
+  @Get()
+  fetchUser(){
+    return 'hello'
+  }
 }
