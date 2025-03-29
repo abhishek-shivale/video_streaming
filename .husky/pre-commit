@@ -1,0 +1,4 @@
+if ! pnpm lint-staged; then
+  echo "Exiting with non-zero exit code"
+  exit $?
+fi
