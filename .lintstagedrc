@@ -1,4 +1,4 @@
 {
-  "*/**/*.{js,jsx,ts,tsx}": ["check", "lint"],
-  "*/**/*.{json,css,md}": ["prettier --check"]
+  "./apps/**/*.{ts,tsx,js,jsx}": ["prettier --write", "eslint --fix"],
+  "./packages/**/*.{ts,tsx,js,jsx}": ["prettier --write", "eslint --fix"]
 }

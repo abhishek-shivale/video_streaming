@@ -10,7 +10,10 @@
     "format": {
       "dependsOn": ["^format"]
     },
-    "check":{
+    "fix": {
+      "dependsOn": ["^fix"]
+    },
+    "check": {
       "dependsOn": ["^check"]
     },
     "lint": {

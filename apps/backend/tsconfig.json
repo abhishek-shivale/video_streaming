@@ -1,6 +1,6 @@
 {
+  "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
-    "module": "NodeNext",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -10,14 +10,12 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    // "incremental": true,
-    // "skipLibCheck": true,
-    // "strictNullChecks": false,
-    // "noImplicitAny": false,
-    // "strictBindCallApply": false,
-    // "forceConsistentCasingInFileNames": false,
-    // "noFallthroughCasesInSwitch": false
-  },
-  "extends": "@repo/typescript-config/base.json",
-  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  }
 }
