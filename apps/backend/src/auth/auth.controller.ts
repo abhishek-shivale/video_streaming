@@ -94,6 +94,7 @@ export class AuthController {
       });
     } catch (error) {
       this.logger.error('Error in register endpoint:', error);
+
       return res.status(500).json({
         success: false,
         data: null,
