@@ -25,6 +25,8 @@
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "@repo/database": "workspace:*",
+    "bcrypt": "^5.1.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
@@ -34,6 +36,7 @@
     "@nestjs/testing": "^10.0.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/mocha": "^10.0.10",
