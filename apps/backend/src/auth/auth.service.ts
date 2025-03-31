@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { prisma } from '@repo/database';
-import { hash } from 'bcrypt';
+import { hash, compare } from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -20,9 +20,18 @@ export class AuthService {
     }
   }
 
-  login() {
+  async login(email: string, password: string) {
     try {
-      return '';
+      const already = await this.getUser(email);
+      if (!already) {
+        return null;
+      }
+
+      const isMatch = await compare(password, already.password);
+      if (isMatch) {
+        return already;
+      }
+      return null;
     } catch (error) {
       this.logger.error('Error during login:', error);
       throw error;

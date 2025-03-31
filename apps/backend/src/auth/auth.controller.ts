@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Logger, Post, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import type { Response } from 'express';
-
+import type { loginAuthDto } from '@repo/types';
 @Controller('auth')
 export class AuthController {
   private readonly logger = new Logger(AuthController.name);
@@ -38,8 +38,17 @@ export class AuthController {
   }
 
   @Post('login')
-  async login(@Res() res: Response) {
+  async login(@Res() res: Response, @Body() body: loginAuthDto) {
     try {
+      const user = await this.authService.login(body.email, body.password);
+      if (!user) {
+        return res.status(401).json({
+          success: false,
+          data: null,
+          message: 'Invalid Credentials!',
+        });
+      }
+
       return res.status(200).json({
         success: true,
         message: 'Login',
