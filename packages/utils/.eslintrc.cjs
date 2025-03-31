@@ -1,6 +1,6 @@
+// ext: ["@repo/eslint-config/library.js"],
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  // ext: ["@repo/eslint-config/library.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
@@ -14,4 +14,5 @@ module.exports = {
     ],
   },
   plugins: ["turbo"],
+  ignorePatterns: ['**/.eslintrc.cjs']
 };

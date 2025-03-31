@@ -1,1 +1,7 @@
-export type { encryptPassword, decryptPassword } from "./src/auth.utils.js";
+// Utils.js
+export {
+  encryptPassword,
+  decryptPassword,
+  generateAccessToken,
+  generateRefreshToken,
+} from "./src/auth.utils.js";

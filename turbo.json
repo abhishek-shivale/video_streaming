@@ -27,5 +27,5 @@
       "persistent": true
     }
   },
-  "globalEnv": ["NODE_ENV", "PASS_SECRET"] 
+  "globalEnv": ["NODE_ENV", "PASS_SECRET", "ACCESS_TOKEN_SECRET", "REFRESH_TOKEN_SECRET"]
 }
