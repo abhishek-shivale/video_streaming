@@ -7,7 +7,7 @@
     ".": "./index.ts"
   },
   "scripts": {
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\" \"*.ts\"",
     "lint": "eslint  **/*.{js,ts,jsx,tsx} --max-warnings 0 ",
     "fix": "eslint  **/*.{js,ts,jsx,tsx} --fix --max-warnings 0",
     "check": "prettier --check \"**/*.{ts,tsx,md}\""
