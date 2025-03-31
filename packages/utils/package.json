@@ -15,15 +15,17 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "typescript": "5.5.4",
+    "@types/jsonwebtoken": "^9.0.9",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.0.0",
     "prettier": "^3.0.0",
-    "eslint": "^8.0.0"
+    "typescript": "5.5.4"
   },
   "dependencies": {
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^22.13.14",
-    "crypto-js": "^4.2.0"
+    "crypto-js": "^4.2.0",
+    "jsonwebtoken": "^9.0.2"
   }
 }
