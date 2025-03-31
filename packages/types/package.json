@@ -9,6 +9,16 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-     "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "prettier": "^3.0.0",
+    "eslint": "^8.0.0"
+  },
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint  **/*.{js,ts,jsx,tsx} --max-warnings 0 ",
+    "fix": "eslint  **/*.{js,ts,jsx,tsx} --fix --max-warnings 0",
+    "check": "prettier --check \"**/*.{ts,tsx,md}\""
   }
 }

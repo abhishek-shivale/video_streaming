@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Logger, Post, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import type { Response } from 'express';
-import type { loginAuthDto } from '@repo/types';
+import type { loginAuthDto, registerAuthDto } from '@repo/types';
 @Controller('auth')
 export class AuthController {
   private readonly logger = new Logger(AuthController.name);
@@ -13,7 +13,6 @@ export class AuthController {
     try {
       const email = 'abhisheksh21@gmail.com';
       const user = await this.authService.getUser(email);
-
       if (!user) {
         return res.status(404).json({
           success: false,
@@ -40,7 +39,10 @@ export class AuthController {
   @Post('login')
   async login(@Res() res: Response, @Body() body: loginAuthDto) {
     try {
-      const user = await this.authService.login(body.email, body.password);
+      const user = await this.authService.login({
+        email: body.email,
+        password: body.password,
+      });
       if (!user) {
         return res.status(401).json({
           success: false,
@@ -81,12 +83,13 @@ export class AuthController {
   }
 
   @Post('register')
-  async register(
-    @Body() body: { email: string; password: string },
-    @Res() res: Response,
-  ) {
+  async register(@Body() body: registerAuthDto, @Res() res: Response) {
     try {
-      const user = await this.authService.register(body.email, body.password);
+      const user = await this.authService.register({
+        email: body.email,
+        password: body.password,
+        name: body.name,
+      });
 
       if (!user) {
         return res.status(400).json({

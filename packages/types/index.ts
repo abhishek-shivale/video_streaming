@@ -1,1 +1,1 @@
-export type { loginAuthDto } from "./src/auth/auth.dto.js";
+export type { loginAuthDto, registerAuthDto } from "./src/auth/auth.dto.js";

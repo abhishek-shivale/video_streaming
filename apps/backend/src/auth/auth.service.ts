@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { prisma } from '@repo/database';
 import { hash, compare } from 'bcrypt';
+import type { loginAuthDto, registerAuthDto } from '@repo/types';
 
 @Injectable()
 export class AuthService {
@@ -20,7 +21,7 @@ export class AuthService {
     }
   }
 
-  async login(email: string, password: string) {
+  async login({ email, password }: loginAuthDto) {
     try {
       const already = await this.getUser(email);
       if (!already) {
@@ -47,7 +48,7 @@ export class AuthService {
     }
   }
 
-  async register(email: string, password: string) {
+  async register({ email, password, name }: registerAuthDto) {
     try {
       const already = await this.getUser(email);
       if (already) {
@@ -59,6 +60,7 @@ export class AuthService {
         data: {
           email,
           password: hashPassword,
+          name,
         },
       });
 
