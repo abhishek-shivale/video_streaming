@@ -1,6 +1,6 @@
 {
   "extends": "@repo/typescript-config/base.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tsup.config.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tsup.config.ts", "src/auth/auth.dto.ts"],
   "exclude": ["node_modules"],
   // "compilerOptions": {
   //   "allowImportingTsExtensions": ""
