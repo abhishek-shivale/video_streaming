@@ -1,6 +1,13 @@
 export interface uploadVideoDto {
-  file: Buffer;
-  bucket: string;
+  file: Express.Multer.File;
+  userId: string;
   name: string;
-  mimetype: string;
+  description?: string;
+}
+
+export interface CreateVideoDto {
+  name: string;
+  description?: string;
+  file: any;
+  userId: string;
 }
