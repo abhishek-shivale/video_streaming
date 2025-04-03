@@ -34,7 +34,9 @@
     "cookie-parser": "^1.4.7",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "@repo/queue": "workspace:*",
+    "@repo/utils": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

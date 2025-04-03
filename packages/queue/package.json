@@ -1,0 +1,25 @@
+{
+  "name": "@repo/queue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./index.ts",
+  "scripts": {
+    "lint": "eslint *.ts*",
+    "build": "tsc",
+    "dev": " tsc --build --force -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.13.14",
+    "eslint": "^8.57.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "bullmq": "^5.46.0",
+    "ts-node": "^10.9.1"
+  }
+}

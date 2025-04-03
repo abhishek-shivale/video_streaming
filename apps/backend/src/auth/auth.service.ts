@@ -64,6 +64,10 @@ export class AuthService {
         },
       });
 
+      if (!user) {
+        return null;
+      }
+
       return user;
     } catch (error) {
       this.logger.error(`Error registering user with email ${email}:`, error);

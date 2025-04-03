@@ -2,11 +2,11 @@ import { Body, Controller, Get, Logger, Post, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import type { Response } from 'express';
 import type { loginAuthDto, registerAuthDto } from '@repo/types';
-// import {
-//   generateRefreshToken,
-//   generateAccessToken,
-//   decryptPassword,
-// } from '@repo/utils';
+import {
+  generateRefreshToken,
+  generateAccessToken,
+  decryptPassword,
+} from '@repo/utils';
 @Controller('auth')
 export class AuthController {
   private readonly logger = new Logger(AuthController.name);
@@ -57,8 +57,8 @@ export class AuthController {
           message: 'Invalid Credentials!',
         });
       }
-      // const password = decryptPassword(body.password);
-      const password = body.password;
+      const password = decryptPassword(body.password);
+      // const password = body.password;
       const user = await this.authService.login({
         email: body.email,
         password,
@@ -71,30 +71,30 @@ export class AuthController {
         });
       }
 
-      // const accessToken = generateAccessToken({
-      //   email: user.email,
-      //   id: user.id,
-      //   name: user.name,
-      // });
-      // const refreshToken = generateRefreshToken({
-      //   email: user.email,
-      //   id: user.id,
-      //   name: user.name,
-      // });
+      const accessToken = generateAccessToken({
+        email: user.email,
+        id: user.id,
+        name: user.name,
+      });
+      const refreshToken = generateRefreshToken({
+        email: user.email,
+        id: user.id,
+        name: user.name,
+      });
 
-      // res.cookie('refreshToken', refreshToken, {
-      //   httpOnly: true,
-      //   secure: true,
-      //   sameSite: 'none',
-      //   maxAge: 365 * 24 * 60 * 60 * 1000,
-      // });
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 365 * 24 * 60 * 60 * 1000,
+      });
 
-      // res.cookie('accessToken', accessToken, {
-      //   httpOnly: false,
-      //   secure: true,
-      //   sameSite: 'none',
-      //   maxAge: 7 * 24 * 60 * 60 * 1000,
-      // });
+      res.cookie('accessToken', accessToken, {
+        httpOnly: false,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+      });
 
       return res.status(200).json({
         success: true,
@@ -139,8 +139,8 @@ export class AuthController {
           message: 'Invalid Credentials!',
         });
       }
-      // const password = decryptPassword(body.password);
-      const password = body.password;
+      const password = decryptPassword(body.password);
+      // const password = body.password;
 
       const user = await this.authService.register({
         email: body.email,
@@ -156,30 +156,30 @@ export class AuthController {
         });
       }
 
-      // const accessToken = generateAccessToken({
-      //   email: user.email,
-      //   id: user.id,
-      //   name: user.name,
-      // });
-      // const refreshToken = generateRefreshToken({
-      //   email: user.email,
-      //   id: user.id,
-      //   name: user.name,
-      // });
+      const accessToken = generateAccessToken({
+        email: user.email,
+        id: user.id,
+        name: user.name,
+      });
+      const refreshToken = generateRefreshToken({
+        email: user.email,
+        id: user.id,
+        name: user.name,
+      });
 
-      // res.cookie('refreshToken', refreshToken, {
-      //   httpOnly: true,
-      //   secure: true,
-      //   sameSite: 'none',
-      //   maxAge: 365 * 24 * 60 * 60 * 1000,
-      // });
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 365 * 24 * 60 * 60 * 1000,
+      });
 
-      // res.cookie('accessToken', accessToken, {
-      //   httpOnly: false,
-      //   secure: true,
-      //   sameSite: 'none',
-      //   maxAge: 7 * 24 * 60 * 60 * 1000,
-      // });
+      res.cookie('accessToken', accessToken, {
+        httpOnly: false,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+      });
 
       return res.status(201).json({
         success: true,

@@ -3,13 +3,13 @@ import { prisma } from '@repo/database';
 import { S3 } from '@aws-sdk/client-s3';
 import { v4 as uuidv4 } from 'uuid';
 import { uploadVideoDto } from '@repo/types';
+import { enqueueVideo } from '@repo/queue';
 
 @Injectable()
 export class VideoService {
   private client: S3;
 
   constructor() {
-    // Configure S3 client with forcePathStyle if needed
     this.client = new S3({
       region: process.env.AWS_REGION,
       credentials: {
@@ -50,6 +50,8 @@ export class VideoService {
         },
       });
 
+      await enqueueVideo({ key: video.id, message: video });
+
       return {
         id: video.id,
         shareableLink: video.shareableLink,
@@ -60,8 +62,4 @@ export class VideoService {
       throw new Error('Failed to upload video');
     }
   }
-
-  // async getVideoLink(videoId: string) {
-
-  // }
 }
