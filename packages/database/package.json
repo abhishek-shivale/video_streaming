@@ -2,14 +2,13 @@
   "name": "@repo/database",
   "version": "1.0.0",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./index.ts"
   },
   "scripts": {
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:seed": "tsx src/seed.ts",
-   
     "format": "prisma format",
     "generate": "prisma generate",
     "lint": "eslint . --max-warnings 0",
@@ -24,7 +23,9 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.13.14",
+    "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^8.57.0",
+    "eslint-plugin-turbo": "^2.4.4",
     "prisma": "latest",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",

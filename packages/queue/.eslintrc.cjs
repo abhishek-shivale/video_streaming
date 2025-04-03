@@ -1,9 +1,10 @@
+
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  plugins: ["turbo"], // Add this line
   parser: "@typescript-eslint/parser",
+  // extends: [config, "plugin:turbo/recommended"],
   parserOptions: {
-    // project: ['./tsconfig.json'],
+    // project: true,
   },
   rules: {
     "turbo/no-undeclared-env-vars": [
@@ -13,4 +14,6 @@ module.exports = {
       },
     ],
   },
+  plugins: ["turbo"],
+  ignorePatterns: ['**/.eslintrc.cjs']
 };

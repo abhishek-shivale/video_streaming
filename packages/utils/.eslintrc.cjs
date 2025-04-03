@@ -1,9 +1,8 @@
-// ext: ["@repo/eslint-config/library.js"],
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: true,
+    project: "./tsconfig.json",
   },
   rules: {
     "turbo/no-undeclared-env-vars": [
@@ -14,5 +13,5 @@ module.exports = {
     ],
   },
   plugins: ["turbo"],
-  ignorePatterns: ['**/.eslintrc.cjs']
+  ignorePatterns: ["dist", "node_modules", ".eslintrc.cjs"],
 };

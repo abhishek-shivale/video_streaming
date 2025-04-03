@@ -5,7 +5,7 @@
   "private": true,
   "main": "./dist/index.js",
   "types": "./index.ts",
-   "scripts": {
+  "scripts": {
     "format": "prettier --write \"src/**/*.ts\" \"*.ts\"",
     "dev": "tsc --watch",
     "build": "tsc",
@@ -20,6 +20,7 @@
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^8.0.0",
+    "eslint-plugin-turbo": "^2.4.4",
     "prettier": "^3.0.0",
     "typescript": "5.5.4"
   },
