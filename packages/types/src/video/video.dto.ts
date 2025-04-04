@@ -11,3 +11,10 @@ export interface CreateVideoDto {
   file: any;
   userId: string;
 }
+
+export enum ProcessStatus {
+  UPLOADED,
+  PROCESSING,
+  COMPLETED,
+  FAILED,
+}

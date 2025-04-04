@@ -3,10 +3,6 @@
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "./src/",
     "baseUrl": "./"
-    // "paths": {
-    //   "@src/*": ["src/*"]
-    // }
   }
 }

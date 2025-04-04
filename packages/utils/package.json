@@ -3,8 +3,16 @@
   "version": "0.0.0",
   "type": "module",
   "private": true,
-  "main": "./dist/index.js",
-  "types": "./index.ts",
+  "exports": {
+    "./auth": {
+      "import": "./dist/src/auth.utils.js",
+      "require": "./dist/src/auth.utils.js"
+    },
+    "./tokens": {
+      "import": "./dist/src/token.utils.js",
+      "require": "./dist/src/token.utils.js"
+    }
+  },
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\" \"*.ts\"",
     "dev": "tsc --watch",

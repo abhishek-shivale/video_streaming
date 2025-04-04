@@ -42,7 +42,7 @@ export class VideoService {
         data: {
           id: videoId,
           name: name || file.originalname,
-          description,
+          description: description ?? name,
           rawVideoUrl: `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileKey}`,
           shareableLink,
           status: 'UPLOADED',
@@ -60,6 +60,21 @@ export class VideoService {
     } catch (error) {
       console.error('Error uploading video:', error);
       throw new Error('Failed to upload video');
+    }
+  }
+
+  async getVideos(userId: string) {
+    try {
+      const videos = await prisma.video.findMany({
+        where: {
+          userId,
+        },
+      });
+
+      return videos;
+    } catch (error) {
+      console.error('Error fetching videos:', error);
+      throw new Error('Failed to fetch videos');
     }
   }
 }

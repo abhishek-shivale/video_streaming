@@ -2,11 +2,8 @@ import { Body, Controller, Get, Logger, Post, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import type { Response } from 'express';
 import type { loginAuthDto, registerAuthDto } from '@repo/types';
-import {
-  generateRefreshToken,
-  generateAccessToken,
-  decryptPassword,
-} from '@repo/utils';
+import { generateRefreshToken, generateAccessToken } from '@repo/utils/tokens';
+// import { decryptPassword } from '@repo/utils/auth';
 @Controller('auth')
 export class AuthController {
   private readonly logger = new Logger(AuthController.name);
@@ -57,8 +54,11 @@ export class AuthController {
           message: 'Invalid Credentials!',
         });
       }
-      const password = decryptPassword(body.password);
-      // const password = body.password;
+      // const password = decryptPassword(
+      //   body.password,
+      //   process.env.PASS_SECRET as string,
+      // );
+      const password = body.password;
       const user = await this.authService.login({
         email: body.email,
         password,
@@ -71,16 +71,22 @@ export class AuthController {
         });
       }
 
-      const accessToken = generateAccessToken({
-        email: user.email,
-        id: user.id,
-        name: user.name,
-      });
-      const refreshToken = generateRefreshToken({
-        email: user.email,
-        id: user.id,
-        name: user.name,
-      });
+      const accessToken = generateAccessToken(
+        {
+          email: user.email,
+          id: user.id,
+          name: user.name,
+        },
+        process.env.ACCESS_TOKEN_SECRET as string,
+      );
+      const refreshToken = generateRefreshToken(
+        {
+          email: user.email,
+          id: user.id,
+          name: user.name,
+        },
+        process.env.REFRESH_TOKEN_SECRET as string,
+      );
 
       res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
@@ -99,6 +105,11 @@ export class AuthController {
       return res.status(200).json({
         success: true,
         message: 'Login',
+        data: {
+          email: user.email,
+          id: user.id,
+          name: user.name,
+        },
       });
     } catch (error) {
       this.logger.error('Error in login endpoint:', error);
@@ -139,8 +150,11 @@ export class AuthController {
           message: 'Invalid Credentials!',
         });
       }
-      const password = decryptPassword(body.password);
-      // const password = body.password;
+      // const password = decryptPassword(
+      //   body.password,
+      //   process.env.PASS_SECRET as string,
+      // );
+      const password = body.password;
 
       const user = await this.authService.register({
         email: body.email,
@@ -156,16 +170,22 @@ export class AuthController {
         });
       }
 
-      const accessToken = generateAccessToken({
-        email: user.email,
-        id: user.id,
-        name: user.name,
-      });
-      const refreshToken = generateRefreshToken({
-        email: user.email,
-        id: user.id,
-        name: user.name,
-      });
+      const accessToken = generateAccessToken(
+        {
+          email: user.email,
+          id: user.id,
+          name: user.name,
+        },
+        process.env.ACCESS_TOKEN_SECRET as string,
+      );
+      const refreshToken = generateRefreshToken(
+        {
+          email: user.email,
+          id: user.id,
+          name: user.name,
+        },
+        process.env.REFRESH_TOKEN_SECRET as string,
+      );
 
       res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
@@ -183,7 +203,11 @@ export class AuthController {
 
       return res.status(201).json({
         success: true,
-        data: user,
+        data: {
+          email: user.email,
+          id: user.id,
+          name: user.name,
+        },
         message: 'User Created Successfully!',
       });
     } catch (error) {
