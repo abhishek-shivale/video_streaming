@@ -10,7 +10,7 @@ module.exports = {
     'type-enum': [
       2,
       'always',
-      ['FEAT', 'FIX', 'CHORE', 'MERGED', 'NEW', 'BUILD'],
+      ['FEAT', 'FIX', 'CHORE', 'MERGED', 'NEW', 'BUILD', 'BUG'],
     ],
     'type-case': [2, 'always', 'upper-case'],
     'subject-max-length': [2, 'always', 100],
