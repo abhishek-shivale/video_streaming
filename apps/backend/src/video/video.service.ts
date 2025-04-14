@@ -27,7 +27,12 @@ export class VideoService {
     try {
       const videoId = uuidv4();
       const shareableLink = this.generateShareableLink();
-      const fileKey = `${userId}/${videoId}/${file.originalname}`;
+      const sanitizedFilename = file.originalname
+        .replace(/[^\w\d\-_.]/g, '')
+        .replace(/\s+/g, '-')
+        .toLowerCase();
+
+      const fileKey = sanitizedFilename;
 
       const bucketName = process.env.AWS_BUCKET_NAME;
 

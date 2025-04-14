@@ -8,7 +8,6 @@
     "dev": "ts-node index.ts",
     "fix": "eslint  \"**/*.ts\" --fix --max-warnings 0",
     "lint": "eslint  \"**/*.ts\"  --max-warnings 0"
-
   },
   "keywords": [],
   "author": "",
