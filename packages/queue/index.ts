@@ -6,6 +6,3 @@ export const enqueueVideo = async ({ key, message }: any) => {
   await myQueue.add(key, message);
   console.log(`Job added: ${key}`);
 };
-
-
-

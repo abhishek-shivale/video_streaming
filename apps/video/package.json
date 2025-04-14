@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node index.ts"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "@repo/queue": "workspace:*",
     "@repo/utils": "workspace:*",
     "bullmq": "^5.46.0",
-    "dockerode": "^4.0.5"
+    "dockerode": "^4.0.5",
+    "dotenv": "^16.5.0"
   }
 }

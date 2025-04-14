@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc",
     "dev": " tsc --build --force -w",
-    "lint": "eslint  **/*.{js,ts,jsx,tsx} --max-warnings 0 ",
-    "fix": "eslint  **/*.{js,ts,jsx,tsx} --fix --max-warnings 0",
+    "lint": "eslint  **/*.{js,ts} --max-warnings 0 ",
+    "fix": "eslint  \"**/*.ts\" --fix --max-warnings 0",
     "check": "prettier --check \"**/*.{ts,tsx,md}\""
   },
   "author": "",

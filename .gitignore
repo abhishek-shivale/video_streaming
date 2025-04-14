@@ -21,6 +21,8 @@ coverage
 # Vercel
 .vercel
 
+videos
+
 # Build Outputs
 .next/
 out/

@@ -17,8 +17,8 @@
     "format": "prettier --write \"src/**/*.ts\" \"*.ts\"",
     "dev": "tsc --watch",
     "build": "tsc",
-    "lint": "eslint  **/*.{js,ts,jsx,tsx} --max-warnings 0 ",
-    "fix": "eslint  **/*.{js,ts,jsx,tsx} --fix --max-warnings 0",
+    "lint": "eslint \"**/*.ts\" --max-warnings 0",
+    "fix": "eslint  \"**/*.ts\" --fix --max-warnings 0",
     "check": "prettier --check \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
