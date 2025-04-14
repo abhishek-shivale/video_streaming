@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node index.ts"
+    "dev": "ts-node index.ts",
+    "fix": "eslint  \"**/*.ts\" --fix --max-warnings 0",
+    "lint": "eslint  \"**/*.ts\"  --max-warnings 0"
+
   },
   "keywords": [],
   "author": "",
