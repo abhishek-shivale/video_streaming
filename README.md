@@ -95,7 +95,3 @@ AWS credentials should be configured via environment variables or `.env`.
 ## 📜 License
 
 MIT © Abhishek Shivale
-
----
-
-Would you like me to turn this into a markdown file for direct use in your repo?
